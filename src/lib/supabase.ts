@@ -1,0 +1,11 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+
+const clientUrl = supabaseUrl ?? 'https://placeholder.supabase.co';
+const clientKey = supabaseAnonKey ?? 'placeholder-anon-key';
+
+export const supabase = createClient(clientUrl, clientKey);
